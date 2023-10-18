@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <form action="{{ url_for('register') }}" method="post">
+      <div>
+        <input
+          type="text"
+          name="name"
+          value="{{ name }}"
+          required
+          placeholder="Name"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="surname"
+          value="{{ surname }}"
+          required
+          placeholder="Surname"
+        />
+      </div>
+      <div>
+        <label for="birthdate">Birthdate:</label>
+        <input
+          type="date"
+          name="birthdate"
+          value="{{ birthdate }}"
+          required
+          max="{{ today }}"
+          placeholder="Birth"
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="username"
+          value="{{ username }}"
+          required
+          placeholder="Username"
+        />
+      </div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          value="{{ email }}"
+          required
+          placeholder="E-mail"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Password"
+        />
+      </div>
+
+      <input
+        type="password"
+        name="confirm_password"
+        required
+        placeholder="Confirm Password"
+      />
+      <br />
+      <br />
+      <div>
+        <button type="submit">Sign up</button>
+      </div>
+      <a href="{{ url_for('login') }}">Log in</a>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+  </body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Delete{% endblock %} {% block content
+%} {% with messages = get_flashed_messages(with_categories=true) %} {% if
+messages %}
+<ul class="flashes">
+  {% for category, message in messages %}
+  <li class="{{ category }}">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+<div class="admin-panel">
+  <div class="user-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>
+            <form action="{{ url_for('delete_book') }}" method="post">
+              <input type="hidden" name="book_id" value="{{ book.id }}" />
+              <button
+                style="background-color: red"
+                type="submit"
+                onclick="return confirm('Are you sure to delete {{book.title}} by {{book.author}}?')"
+              >
+                Delete
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

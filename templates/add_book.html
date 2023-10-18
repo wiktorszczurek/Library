@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Panel{% endblock %} {% block content
+%}
+<h2>Add Book</h2>
+
+{% with messages = get_flashed_messages() %} {% if messages %}
+<ul class="flashes">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %} {% endwith %}
+
+<form action="{{ url_for('add_book') }}" method="post">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" />
+  <br /><br />
+  <label for="author">Author:</label>
+  <input type="text" id="author" name="author" />
+  <br /><br />
+  <input type="submit" value="Add Book" />
+</form>
+{% endblock %}
