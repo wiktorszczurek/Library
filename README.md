@@ -8,4 +8,4 @@
 - Information for the user about the date of borrowing the book
 - Automatic reminder for the user 3 months after borrowing
 - Pleasant and convenient interface
-Application written with Python, HTML, CSS, Flask.
+- Application written with Python, HTML, CSS, Flask.
