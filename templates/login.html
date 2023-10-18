@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block
+  content %}
+    <form action="{{ url_for('login') }}" method="post">
+      <div>
+        <input
+          type="text"
+          name="identifier"
+          required
+          placeholder="Email or Username"
+        />
+      </div>
+
+      <div>
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Password"
+        />
+      </div>
+      <br />
+      <div>
+        <button type="submit">Log in</button>
+      </div>
+      <a href="{{ url_for('register') }}">Sign up</a>
+      <br />
+
+      <a href="{{ url_for('forgot_password') }}">Forgot Password</a>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul class="flashes">
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    {% endblock %}
