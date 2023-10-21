@@ -9,3 +9,4 @@
 - Automatic reminder for the user 3 months after borrowing
 - Pleasant and convenient interface
 - Application written with Python, HTML, CSS, Flask.
+![library](https://github.com/wiktorszczurek/Library/assets/124889327/1ea6b801-096a-4436-a56e-49d425fdec89)
